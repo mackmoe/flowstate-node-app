@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-white antialiased;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Gradient backgrounds */
+  .bg-gradient-radial {
+    background: radial-gradient(circle at center, rgba(118, 212, 210, 0.1) 0%, transparent 70%);
+  }
+  
+  .bg-gradient-subtle {
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 113, 169, 0.05) 50%, transparent 100%);
+  }
+  
+  /* Glass morphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Focus states */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-brand-cyan focus:ring-offset-2 focus:ring-offset-black;
+  }
+}
+
+@layer utilities {
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .transition-slow {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Text gradients */
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, #76d4d2 0%, #ffc30a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-warm {
+    background: linear-gradient(135deg, #ff71a9 0%, #ffa35a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Scroll reveal animations */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Parallax effect */
+  @media (prefers-reduced-motion: no-preference) {
+    .parallax-slow {
+      transform: translateY(calc(var(--scroll) * -0.5px));
+    }
+    
+    .parallax-medium {
+      transform: translateY(calc(var(--scroll) * -1px));
+    }
+    
+    .parallax-fast {
+      transform: translateY(calc(var(--scroll) * -1.5px));
+    }
+  }
+}
