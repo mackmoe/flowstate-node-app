@@ -4,6 +4,7 @@ import SectionHeader from "@/components/SectionHeader";
 import Card from "@/components/Card";
 import Button from "@/components/Button";
 import ScrollReveal from "@/components/ScrollReveal";
+import YouTubeLiveEmbed from "@/components/YouTubeLiveEmbed";
 
 export const metadata: Metadata = {
   title: "Listen — FlowState FM",
@@ -36,41 +37,24 @@ const sessions = [
 ];
 
 export default function ListenPage() {
-  const youtubeUrl = process.env.NEXT_PUBLIC_YOUTUBE_LIVE_URL || "";
+  const youtubeUrl = process.env.NEXT_PUBLIC_YOUTUBE_LIVE_URL;
   
   return (
     <main className="min-h-screen pt-24 pb-12">
       <Container size="xl">
         {/* Header */}
         <SectionHeader
-          title="Listen"
-          subtitle="Your focus sessions start here. Choose your session length and enter flow."
+          title="Live Now"
+          subtitle="24/7 focus music to help you enter and maintain your flow state. Choose your session length below."
           accent="cyan"
         />
         
-        {/* YouTube Embed */}
+        {/* YouTube Live Embed */}
         <div className="mb-20">
-          <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-white/5 border border-white/10">
-            {youtubeUrl ? (
-              <iframe
-                src={youtubeUrl}
-                title="FlowState FM Live Stream"
-                className="absolute inset-0 w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            ) : (
-              <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-                <div className="text-center">
-                  <svg className="w-16 h-16 mx-auto mb-4 opacity-50" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
-                  </svg>
-                  <p className="text-sm">YouTube live stream will appear here</p>
-                  <p className="text-xs mt-2">Add NEXT_PUBLIC_YOUTUBE_LIVE_URL to .env.local</p>
-                </div>
-              </div>
-            )}
-          </div>
+          <YouTubeLiveEmbed 
+            videoIdOrUrl={youtubeUrl}
+            channelUrl="https://www.youtube.com/@flowstatefm"
+          />
         </div>
         
         {/* Session Cards */}
