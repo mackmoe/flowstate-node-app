@@ -138,27 +138,6 @@ export default function KitPage() {
             </Card>
           </div>
         </div>
-
-        {/* Kit+ Upsell */}
-        <div className="max-w-3xl mx-auto">
-          <Card className="text-center bg-gradient-subtle">
-            <h2 className="text-3xl font-serif font-bold mb-4 text-gradient-warm">
-              Kit+ Premium
-            </h2>
-            <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-              Upgrade to Kit+ for advanced flow protocols, private community access, 
-              and weekly coaching sessions with performance experts.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg">
-                Learn More
-              </Button>
-              <Button variant="outline" size="lg">
-                Compare Plans
-              </Button>
-            </div>
-          </Card>
-        </div>
       </Container>
     </main>
   );

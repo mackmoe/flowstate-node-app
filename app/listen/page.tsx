@@ -39,18 +39,18 @@ export default function ListenPage() {
         {/* Session Cards */}
         <SessionCards />
         
-        {/* After Hours Section */}
-        <div id="after-hours" className="scroll-mt-20">
+        {/* Flow State Section */}
+        <div id="flow-state" className="scroll-mt-20">
           <Card className="text-center max-w-3xl mx-auto bg-gradient-subtle">
             <h2 className="text-4xl font-serif font-bold mb-4 text-gradient-warm">
-              After Hours
+              Flow State
             </h2>
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-              Late-night sessions for creators, night owls, and deep thinkers. 
-              A different energy for when the world sleeps.
+              Discover the science and art of achieving peak performance. 
+              Learn how to consistently enter your flow state.
             </p>
-            <Button variant="secondary" size="lg">
-              Enter After Hours
+            <Button variant="secondary" size="lg" href="/flow-state">
+              Explore Flow State
             </Button>
           </Card>
         </div>
