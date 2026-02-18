@@ -46,9 +46,6 @@ export default function Home() {
           <Button href="/flow-state" variant="ghost" size="sm">
             What is Flow State?
           </Button>
-          <Button href="/after-hours" variant="ghost" size="sm">
-            After Hours
-          </Button>
         </div>
       </div>
     </main>
