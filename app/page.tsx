@@ -1,6 +1,9 @@
 import Button from "@/components/Button";
+import LiveBadge from "@/components/LiveBadge";
 
 export default function Home() {
+  const isLive = Boolean(process.env.NEXT_PUBLIC_YOUTUBE_LIVE_URL);
+
   return (
     <main className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background Placeholder with Gradient Overlay */}
@@ -20,6 +23,11 @@ export default function Home() {
         <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 tracking-tight animate-fade-in">
           FlowState <span className="text-gradient-cyan">FM</span>
         </h1>
+
+        {/* Live Badge */}
+        <div className="mb-8 animate-slide-up" style={{ animationDelay: "0.1s" }}>
+          <LiveBadge isLive={isLive} href="/listen" />
+        </div>
         
         {/* Brand Paragraph */}
         <p className="text-xl md:text-2xl text-gray-300 mb-4 leading-relaxed font-serif max-w-3xl mx-auto animate-slide-up">

@@ -27,10 +27,17 @@ export default function YouTubeLiveEmbed({
     // Check if it's already a full URL
     if (videoIdOrUrl.startsWith("http")) {
       embedUrl = videoIdOrUrl;
-      // Extract video ID from embed URL for watch link
-      const match = videoIdOrUrl.match(/embed\/([^?]+)/);
-      const videoId = match ? match[1] : "";
-      watchUrl = videoId ? `https://www.youtube.com/watch?v=${videoId}` : channelUrl;
+
+      // Support channel-live embed URLs
+      const channelMatch = videoIdOrUrl.match(/live_stream\?channel=([^&]+)/);
+      if (channelMatch) {
+        watchUrl = channelUrl;
+      } else {
+        // Extract video ID from embed URL for watch link
+        const match = videoIdOrUrl.match(/embed\/([^?]+)/);
+        const videoId = match ? match[1] : "";
+        watchUrl = videoId ? `https://www.youtube.com/watch?v=${videoId}` : channelUrl;
+      }
     } else {
       // It's just a video ID
       embedUrl = `https://www.youtube.com/embed/${videoIdOrUrl}?autoplay=${autoplay ? 1 : 0}&mute=0`;
