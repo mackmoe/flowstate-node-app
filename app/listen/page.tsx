@@ -32,7 +32,7 @@ export default function ListenPage() {
         <div className="mb-20">
           <YouTubeLiveEmbed 
             videoIdOrUrl={youtubeUrl}
-            channelUrl="https://www.youtube.com/@flowstatefm"
+            channelUrl="https://www.youtube.com/@FlowStateFM1"
           />
         </div>
         
